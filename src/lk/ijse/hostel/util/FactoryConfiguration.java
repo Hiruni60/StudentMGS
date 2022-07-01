@@ -9,15 +9,22 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.io.IOException;
+import java.util.Properties;
+
 public class FactoryConfiguration {
 
     private static FactoryConfiguration factoryConfiguration;
     private SessionFactory sessionFactory;
 
-    private FactoryConfiguration() {
+    private FactoryConfiguration() throws IOException {
         // configure() -> load and config Hibernate.cfg.xml file to SessionFactory
         // addAnnotatedClass() -> define which Entity that gonna use to Persist
-        Configuration configuration = new Configuration().configure("/lk/ijse/hostel/resources/hibernate.cfg.xml")
+        // loading properties file
+        Properties p = new Properties();
+        p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+
+        Configuration configuration = new Configuration().setProperties(p)
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Room.class)
@@ -27,7 +34,7 @@ public class FactoryConfiguration {
         // build a SessionFactory and assign it to sessionFactory reference
         sessionFactory = configuration.buildSessionFactory();
     }
-    public static FactoryConfiguration getInstance() {
+    public static FactoryConfiguration getInstance() throws IOException {
         return (factoryConfiguration == null) ? factoryConfiguration = new FactoryConfiguration()
                 : factoryConfiguration;
     }

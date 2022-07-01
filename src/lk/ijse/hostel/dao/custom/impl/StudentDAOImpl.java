@@ -7,13 +7,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
 
     @Override
-    public List<Student> getAll() throws SQLException, ClassNotFoundException {
+    public List<Student> getAll() throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -30,7 +31,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean save(Student dto) throws SQLException, ClassNotFoundException {
+    public boolean save(Student dto) throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -43,7 +44,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean update(Student dto) throws SQLException, ClassNotFoundException {
+    public boolean update(Student dto) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -56,7 +57,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student search(String s) throws SQLException, ClassNotFoundException {
+    public Student search(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -75,7 +76,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException {
+    public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -90,7 +91,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public String generateNewID() throws SQLException, ClassNotFoundException {
+    public String generateNewID() throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

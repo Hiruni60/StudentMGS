@@ -11,6 +11,7 @@ import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hostel.dto.StudentDTO;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -35,49 +36,56 @@ public class StudentFormController {
         btnRegisterStudent.setDisable(true);
         btnUpdateStudent.setDisable(true);
         btnDeleteStudent.setDisable(true);
-
-        ArrayList<StudentDTO> all = studentBOImpl.getAll();
-        for (StudentDTO s:all
-             ) {
-            cmbStudentId.getItems().add(s.getId());
+        ArrayList<StudentDTO> all = null;
+        try{
+            all = studentBOImpl.getAll();
+        }catch (Exception e){
+            //manage
         }
-        cmbStudentId.getItems().add("  ");
-
-        cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
-            if (newValue.equals("  ")){
-                try {
-                    cmbStudentId.setValue(studentBOImpl.generateNewId());
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                btnRegisterStudent.setDisable(false);
-                btnDeleteStudent.setDisable(true);
-                btnUpdateStudent.setDisable(true);
-
-            }else{
-                try {
-                    StudentDTO search = studentBOImpl.search((String) cmbStudentId.getValue());
-                    txtSName.setText(search.getName());
-                    txtSAddress.setText(search.getAddress());
-                    txtSContact.setText(search.getContact());
-                    txtSBirthday.setText(search.getDob());
-                    txtSGender.setText(search.getGender());
-
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-                btnRegisterStudent.setDisable(true);
-                btnDeleteStudent.setDisable(false);
-                btnUpdateStudent.setDisable(false);
+        if(all!=null) {
+            for (StudentDTO s : all
+            ) {
+                cmbStudentId.getItems().add(s.getId());
             }
+            cmbStudentId.getItems().add("  ");
 
-        });
+            cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue.equals("  ")) {
+                    try {
+                        cmbStudentId.setValue(studentBOImpl.generateNewId());
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    btnRegisterStudent.setDisable(false);
+                    btnDeleteStudent.setDisable(true);
+                    btnUpdateStudent.setDisable(true);
 
+                } else {
+                    try {
+                        StudentDTO search = studentBOImpl.search((String) cmbStudentId.getValue());
+                        txtSName.setText(search.getName());
+                        txtSAddress.setText(search.getAddress());
+                        txtSContact.setText(search.getContact());
+                        txtSBirthday.setText(search.getDob());
+                        txtSGender.setText(search.getGender());
+
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    } catch (ClassNotFoundException | IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    btnRegisterStudent.setDisable(true);
+                    btnDeleteStudent.setDisable(false);
+                    btnUpdateStudent.setDisable(false);
+                }
+
+            });
+        }
 
     }
     public void clearFields () {

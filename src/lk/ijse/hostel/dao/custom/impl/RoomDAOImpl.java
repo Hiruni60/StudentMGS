@@ -7,13 +7,14 @@ import lk.ijse.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO{
 
     @Override
-    public List<Room> getAll() throws SQLException, ClassNotFoundException {
+    public List<Room> getAll() throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -27,7 +28,7 @@ public class RoomDAOImpl implements RoomDAO{
     }
 
     @Override
-    public boolean save(Room dto) throws SQLException, ClassNotFoundException {
+    public boolean save(Room dto) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -41,7 +42,7 @@ public class RoomDAOImpl implements RoomDAO{
 
 
     @Override
-    public boolean update(Room dto) throws SQLException, ClassNotFoundException {
+    public boolean update(Room dto) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -54,7 +55,7 @@ public class RoomDAOImpl implements RoomDAO{
     }
 
     @Override
-    public Room search(String s) throws SQLException, ClassNotFoundException {
+    public Room search(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -74,7 +75,7 @@ public class RoomDAOImpl implements RoomDAO{
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException {
+    public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();

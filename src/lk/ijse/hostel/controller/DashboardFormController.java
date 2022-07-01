@@ -35,9 +35,11 @@ public class DashboardFormController {
 
 
         URL resource = getClass().getResource("../view/ManageUserForm.fxml");
+        if(resource!=null){
         Parent load = FXMLLoader.load(resource);
-        workingContext.getChildren().clear();
-        workingContext.getChildren().add(load);
+            workingContext.getChildren().clear();
+            workingContext.getChildren().add(load);
+        }
     }
 
     public void manageAccountOnAction(ActionEvent actionEvent) throws IOException {

@@ -11,6 +11,7 @@ import lk.ijse.hostel.bo.custom.impl.UserBOImpl;
 import lk.ijse.hostel.dto.StudentDTO;
 import lk.ijse.hostel.dto.UserDTO;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -26,39 +27,44 @@ public class ManageUserFormController {
 
     UserBOImpl userBOImpl = (UserBOImpl) BOFactory.getInstance().getBO(BOType.USER);
 
-    public void initialize() throws SQLException, ClassNotFoundException {
+    public void initialize() throws SQLException, ClassNotFoundException, IOException {
 
         cmbUserName.getItems().clear();
         txtFullName.setDisable(true);
-        ArrayList<UserDTO> all = userBOImpl.getAll();
-        for (UserDTO user:all
-             ) {
-            cmbUserName.getItems().add(user.getUserName());
+        ArrayList<UserDTO> all = null;
+        try {
+             all = userBOImpl.getAll();
+        }catch (Exception e){
+            // manage
         }
-        cmbUserName.getItems().add(" ");
+        if(all!=null) {
+            for (UserDTO user : all
+            ) {
+                cmbUserName.getItems().add(user.getUserName());
+            }
+            cmbUserName.getItems().add(" ");
 
-        cmbUserName.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
-
-
-            if (!(newValue == null)){
-                if (newValue.equals(" ")){
-
-                    txtContact.clear();
-                    txtEmail.clear();
-                    txtPassword.clear();
-                    txtFullName.clear();
+            cmbUserName.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 
 
+                if (!(newValue == null)) {
+                    if (newValue.equals(" ")) {
 
-                    txtFullName.setDisable(false);
-                    btnAdd.setDisable(false);
-                    btnDelete.setDisable(true);
-                    btnUpdate.setDisable(true);
+                        txtContact.clear();
+                        txtEmail.clear();
+                        txtPassword.clear();
+                        txtFullName.clear();
 
-                }else {
 
-                    try {
-                        txtFullName.setDisable(true);
+                        txtFullName.setDisable(false);
+                        btnAdd.setDisable(false);
+                        btnDelete.setDisable(true);
+                        btnUpdate.setDisable(true);
+
+                    } else {
+
+                        try {
+                            txtFullName.setDisable(true);
                             UserDTO search = userBOImpl.search((String) cmbUserName.getValue());
                             txtFullName.setText(search.getUserName());
                             txtContact.setText(search.getContact());
@@ -68,16 +74,19 @@ public class ManageUserFormController {
                             btnAdd.setDisable(true);
                             btnDelete.setDisable(false);
                             btnUpdate.setDisable(false);
-                             
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
+
+                        } catch (SQLException throwables) {
+                            throwables.printStackTrace();
+                        } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
 
-        });
+            });
+        }
     }
 
     public void clearFields () {

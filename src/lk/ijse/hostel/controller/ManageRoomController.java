@@ -32,29 +32,35 @@ public class ManageRoomController {
 
     public void initialize() throws Exception {
 
-        ArrayList<RoomDTO> all = roomBoImpl.getAll();
-        for (RoomDTO r:all
-        ) {
-            cmbRoomId.getItems().add(r.getRoom_id());
+        ArrayList<RoomDTO> all = null;
+        try{
+            all = roomBoImpl.getAll();
+        } catch (Exception e){
+            // manage
         }
-
-        cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
-
-            try {
-
-                if (!(newValue ==null)){
-                     search = roomBoImpl.search((String) newValue);
-                    txtType.setText(search.getTye());
-                    txtMonthlyRent.setText(String.valueOf(search.getKey_money()));
-                    txtQty.setText(String.valueOf(search.getQty()));
-
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
+        if(all!=null) {
+            for (RoomDTO r : all
+            ) {
+                cmbRoomId.getItems().add(r.getRoom_id());
             }
-        });
 
+            cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+
+                try {
+
+                    if (!(newValue == null)) {
+                        search = roomBoImpl.search((String) newValue);
+                        txtType.setText(search.getTye());
+                        txtMonthlyRent.setText(String.valueOf(search.getKey_money()));
+                        txtQty.setText(String.valueOf(search.getQty()));
+
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
 
             }
 

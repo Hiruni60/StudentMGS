@@ -10,6 +10,7 @@ import lk.ijse.hostel.dto.UserDTO;
 import lk.ijse.hostel.entity.User;
 
 import javax.jws.soap.SOAPBinding;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class UserBOImpl implements UserBO {
 
     UserDAOImpl userDAO = (UserDAOImpl) DAOFactory.getInstance().getDAO(DAOType.USER);
 
-    public ArrayList<UserDTO> getAll () throws SQLException, ClassNotFoundException {
+    public ArrayList<UserDTO> getAll () throws SQLException, ClassNotFoundException, IOException {
 
         List<User> all = userDAO.getAll();
         ArrayList<UserDTO> allUser = new ArrayList<>();
@@ -59,7 +60,7 @@ public class UserBOImpl implements UserBO {
     }
 
 
-    public UserDTO search(String s) throws SQLException, ClassNotFoundException{
+    public UserDTO search(String s) throws SQLException, ClassNotFoundException, IOException {
 
         User search = userDAO.search(s);
 

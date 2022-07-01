@@ -10,13 +10,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 public class ReserveRoomDAOImpl implements ReserveRoomDAO {
 
     @Override
-    public List<Reservation> getAll() throws SQLException, ClassNotFoundException {
+    public List<Reservation> getAll() throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -34,7 +35,7 @@ public class ReserveRoomDAOImpl implements ReserveRoomDAO {
     }
 
     @Override
-    public boolean save(Reservation dto) throws SQLException, ClassNotFoundException {
+    public boolean save(Reservation dto) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -52,7 +53,7 @@ public class ReserveRoomDAOImpl implements ReserveRoomDAO {
     }
 
     @Override
-    public Reservation search(String s) throws SQLException, ClassNotFoundException {
+    public Reservation search(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -109,7 +110,7 @@ public class ReserveRoomDAOImpl implements ReserveRoomDAO {
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException {
+    public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -121,7 +122,7 @@ public class ReserveRoomDAOImpl implements ReserveRoomDAO {
     }
 
     @Override
-    public String generateNewID() throws SQLException, ClassNotFoundException {
+    public String generateNewID() throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();

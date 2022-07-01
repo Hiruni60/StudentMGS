@@ -16,6 +16,7 @@ import lk.ijse.hostel.entity.Reservation;
 import lk.ijse.hostel.entity.Room;
 import lk.ijse.hostel.entity.Student;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         return false;
     }
 
-    public RoomDTO search(String id) throws SQLException, ClassNotFoundException {
+    public RoomDTO search(String id) throws SQLException, ClassNotFoundException, IOException {
 
         Room search = roomDAO.search(id);
 
@@ -53,7 +54,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
 
     }
 
-    public StudentDTO searchStudent(String id) throws SQLException, ClassNotFoundException {
+    public StudentDTO searchStudent(String id) throws SQLException, ClassNotFoundException, IOException {
         Student search = studentDAO.search(id);
 
         return new StudentDTO(search.getStudentId(),search.getStudentName(),search.getStudentAddress(),search.getStudentContact(),
@@ -88,7 +89,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         return allReserve;
     }
 
-    public ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException {
+    public ArrayList<StudentDTO> getAllStudent() throws SQLException, ClassNotFoundException, IOException {
 
         List<Student> all = studentDAO.getAll();
         ArrayList<StudentDTO> allStudent = new ArrayList<>();
@@ -102,7 +103,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         return allStudent;
     }
 
-    public ArrayList<ReserveRoomDTO> getAllReserve() throws SQLException, ClassNotFoundException {
+    public ArrayList<ReserveRoomDTO> getAllReserve() throws SQLException, ClassNotFoundException, IOException {
 
         List<Reservation> all = reserveRoomDAO.getAll();
         ArrayList<ReserveRoomDTO> allReserve = new ArrayList<>();
@@ -115,7 +116,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         return allReserve;
     }
 
-   public String generateReserveRoomId() throws SQLException, ClassNotFoundException {
+   public String generateReserveRoomId() throws SQLException, ClassNotFoundException, IOException {
       return   reserveRoomDAO.generateNewID();
    }
 

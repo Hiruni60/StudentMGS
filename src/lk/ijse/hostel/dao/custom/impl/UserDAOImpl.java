@@ -9,13 +9,14 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import javax.jws.soap.SOAPBinding;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
 
     @Override
-    public List<User> getAll() throws SQLException, ClassNotFoundException {
+    public List<User> getAll() throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -34,7 +35,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean save(User dto) throws SQLException, ClassNotFoundException {
+    public boolean save(User dto) throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -48,7 +49,7 @@ public class UserDAOImpl implements UserDAO {
 
 
     @Override
-    public boolean update(User dto) throws SQLException, ClassNotFoundException {
+    public boolean update(User dto) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -61,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User search(String s) throws SQLException, ClassNotFoundException {
+    public User search(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -81,7 +82,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException {
+    public boolean delete(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -97,7 +98,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public String generateNewID() throws SQLException, ClassNotFoundException {
+    public String generateNewID() throws SQLException, ClassNotFoundException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

@@ -10,6 +10,7 @@ import lk.ijse.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,14 +70,14 @@ public class StudentBOImpl implements StudentBO {
         return studentDAO.delete(id);
     }
 
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public String generateNewId() throws SQLException, ClassNotFoundException, IOException {
 
         return studentDAO.generateNewID();
 
 
     }
 
-    public StudentDTO search(String s) throws SQLException, ClassNotFoundException {
+    public StudentDTO search(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Student search = studentDAO.search(s);
         return new StudentDTO(search.getStudentId(),search.getStudentName(),search.getStudentAddress(),

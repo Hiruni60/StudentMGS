@@ -23,6 +23,7 @@ import lk.ijse.hostel.dto.StudentDTO;
 import lk.ijse.hostel.entity.Room;
 import lk.ijse.hostel.entity.Student;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -56,38 +57,42 @@ public class ReserveRoomFormController {
         colType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-
-        for (RoomDTO r: reserveRoomBO.getAll()
-             ) {
-            cmbRoomId.getItems().add(r.getRoom_id());
-        }
-
-        for (StudentDTO s:reserveRoomBO.getAllStudent()
-             ) {
-            cmbStudentId.getItems().add(s.getId());
-        }
-        loadDateAndTime();
-
-        cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            try {
-
-                RoomDTO search = reserveRoomBO.search(newValue);
-                txtRoomType.setText(search.getTye());
-
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+        ArrayList<RoomDTO> all = null;
+        try{
+            all = reserveRoomBO.getAll();
+        }catch (Exception e){}
+        if(all!=null) {
+            for (RoomDTO r : all
+            ) {
+                cmbRoomId.getItems().add(r.getRoom_id());
             }
 
+            for (StudentDTO s : reserveRoomBO.getAllStudent()
+            ) {
+                cmbStudentId.getItems().add(s.getId());
+            }
+            loadDateAndTime();
 
-        });
+            cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                try {
 
-        loadReservationTable();
+                    RoomDTO search = reserveRoomBO.search(newValue);
+                    txtRoomType.setText(search.getTye());
+
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                } catch (ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            });
+
+            loadReservationTable();
+        }
     }
 
-    private void loadReservationTable() throws SQLException, ClassNotFoundException {
+    private void loadReservationTable() throws SQLException, ClassNotFoundException, IOException {
         tblReserveRoom.getItems().clear();
         ArrayList<ReserveRoomDTO> allReserve = reserveRoomBO.getAllReserve();
         for (ReserveRoomDTO reserveRoomDTO:allReserve
