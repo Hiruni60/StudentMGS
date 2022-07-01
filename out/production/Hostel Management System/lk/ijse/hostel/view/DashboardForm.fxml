@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="601.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.DashboardFormController">
+   <children>
+      <AnchorPane layoutX="-26.0" layoutY="-2.0" prefHeight="78.0" prefWidth="967.0" styleClass="left-side-background" stylesheets="@../assert/style/StyleSheet.css" />
+      <AnchorPane layoutX="-36.0" layoutY="70.0" prefHeight="535.0" prefWidth="311.0" style="-fx-border-color: #f368e0;" stylesheets="@../assert/style/StyleSheet.css">
+         <styleClass>
+            <String fx:value="anchorpane" />
+            <String fx:value="border" />
+            <String fx:value="right-side-border" />
+         </styleClass>
+         <children>
+            <Button fx:id="btnManageAccount" layoutX="74.0" layoutY="361.0" mnemonicParsing="false" onAction="#manageAccountOnAction" style="-fx-background-color: transparancy;" text="Manage Account" textFill="#7dd1f0">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/ManageAccount.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnLogOut" layoutX="74.0" layoutY="399.0" mnemonicParsing="false" onAction="#logOutOnAction" style="-fx-background-color: transparancy;" text="Log Out" textFill="#7dd1f0">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/LogOut.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="dashboardContext" layoutX="275.0" layoutY="76.0" prefHeight="529.0" prefWidth="666.0" styleClass="right-side-background" stylesheets="@../assert/style/StyleSheet.css" />
+      <Separator layoutX="275.0" layoutY="73.0" prefHeight="0.0" prefWidth="666.0" style="-fx-background-color: #182C61;" />
+   </children>
+</AnchorPane>

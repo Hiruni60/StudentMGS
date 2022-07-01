@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginContext" prefHeight="592.0" prefWidth="849.0" styleClass="right-side-background" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.LoginFormController">
+   <children>
+      <Circle layoutX="411.0" layoutY="85.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d558eb" />
+                  <Stop color="#3d229e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Circle layoutX="427.0" layoutY="68.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d558eb" />
+                  <Stop color="#3d229e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Circle layoutX="394.0" layoutY="68.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d558eb" />
+                  <Stop color="#3d229e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Circle layoutX="337.0" layoutY="267.0" radius="23.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d558eb" />
+                  <Stop color="#3d229e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Circle layoutX="350.0" layoutY="284.0" radius="27.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d558eb" />
+                  <Stop color="#3d229e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <Circle layoutX="425.0" layoutY="128.0" radius="52.0" stroke="WHITE" strokeType="INSIDE">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d558eb" />
+                  <Stop color="#3d229e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Circle>
+      <AnchorPane layoutX="430.0" layoutY="28.0" prefHeight="538.0" prefWidth="384.0" stylesheets="@../assert/style/StyleSheet.css">
+         <styleClass>
+            <String fx:value="anchorpane" />
+            <String fx:value="border" />
+            <String fx:value="transparent" />
+            <String fx:value="right-side-border" />
+         </styleClass>
+         <children>
+            <Label layoutX="73.0" layoutY="106.0" text="Welcome">
+               <font>
+                  <Font name="Times New Roman Bold" size="63.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#8a0d90" />
+                        <Stop color="#060707" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Circle layoutX="194.0" layoutY="266.0" radius="52.0" stroke="WHITE" strokeType="INSIDE">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#d558eb" />
+                        <Stop color="#3d229e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="194.0" layoutY="255.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#d558eb" />
+                        <Stop color="#3d229e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="210.0" layoutY="273.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#d558eb" />
+                        <Stop color="#3d229e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <Circle layoutX="177.0" layoutY="273.0" radius="17.0" stroke="WHITE" strokeType="INSIDE">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#d558eb" />
+                        <Stop color="#3d229e" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Circle>
+            <ImageView fitHeight="125.0" fitWidth="186.0" layoutX="94.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assert/download%20(1).jpg" />
+               </image>
+               <effect>
+                  <InnerShadow color="#a82ca2" height="255.0" radius="63.25" width="0.0" />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="70.0" layoutY="87.0" prefHeight="30.0" prefWidth="241.0" text="Log In to Your Account" textFill="#407bda">
+         <font>
+            <Font name="Bodoni MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUserName" centerShape="false" layoutX="96.0" layoutY="211.0" promptText="User Name" style="-fx-background-color: transparance; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ffffff; -fx-text-fill: #ffffff;" stylesheets="@../assert/style/StyleSheet.css">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
+      <Separator layoutX="46.0" layoutY="138.0" prefHeight="0.0" prefWidth="294.0" style="-fx-background-color: #000000;" />
+      <Button fx:id="btnLogin" layoutX="70.0" layoutY="378.0" mnemonicParsing="false" onAction="#LoginOnAction" prefHeight="31.0" prefWidth="72.0" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Calisto MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCancel" layoutX="239.0" layoutY="378.0" mnemonicParsing="false" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="72.0" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="Calisto MT Bold" size="15.0" />
+         </font>
+      </Button>
+      <Hyperlink layoutX="138.0" layoutY="481.0" text="Forgot Your Password">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="lblWrongLogin" layoutX="49.0" layoutY="434.0" prefHeight="21.0" prefWidth="294.0" textAlignment="CENTER" textFill="#d71313">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <PasswordField fx:id="pwdPassword" layoutX="95.0" layoutY="284.0" promptText="Password" style="-fx-background-color: transparance; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ffffff; -fx-text-fill: #ffffff;" styleClass="border" stylesheets="@../assert/style/StyleSheet.css">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></PasswordField>
+   </children>
+</AnchorPane>

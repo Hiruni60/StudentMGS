@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="601.0" prefWidth="909.0" style="-fx-background-color: #1e272e;" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.DashboardFormController">
+   <children>
+      <AnchorPane layoutX="-36.0" prefHeight="613.0" prefWidth="311.0" style="-fx-background-color: #ffa72c;" styleClass="border" stylesheets="@../assert/style/StyleSheet.css">
+         <children>
+            <Button fx:id="btnManageAccount" layoutX="74.0" layoutY="481.0" mnemonicParsing="false" onAction="#manageAccountOnAction" style="-fx-background-color: transparancy;" text="Manage Account" textFill="#1e272e">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/ManageAccount.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnLogOut" layoutX="74.0" layoutY="549.0" mnemonicParsing="false" onAction="#logOutOnAction" style="-fx-background-color: transparancy;" text="Log Out" textFill="#1e272e">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/LogOut.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnDashboard" layoutX="76.0" layoutY="197.0" mnemonicParsing="false" onAction="#dashboardOnAction" style="-fx-background-color: transparancy;" text="Dashboard" textFill="#1e272e">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnManageStudent" layoutX="76.0" layoutY="300.0" mnemonicParsing="false" onAction="#manageStudentOnAction" style="-fx-background-color: transparancy;" text="Manage Student" textFill="#1e272e">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/ManageStudent.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnManageRoom" layoutX="77.0" layoutY="358.0" mnemonicParsing="false" onAction="#manageRoomOnAction" style="-fx-background-color: transparancy;" text="Manage Room" textFill="#1e272e">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/living-room.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="reserveRoom" layoutX="77.0" layoutY="419.0" mnemonicParsing="false" onAction="#reserveRoomOnAction" style="-fx-background-color: transparancy;" text="Reserve Room" textFill="#1e272e">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/booking.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField layoutX="83.0" layoutY="14.0" prefHeight="15.0" prefWidth="206.0" promptText="Search" style="-fx-background-color: #bdc3c7;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" />
+            <ImageView fitHeight="17.0" fitWidth="30.0" layoutX="63.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assert/search.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="97.0" fitWidth="116.0" layoutX="120.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assert/Db.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnManageUser" layoutX="75.0" layoutY="247.0" mnemonicParsing="false" onAction="#manageUserOnAction" style="-fx-background-color: transparancy;" text="Manage User" textFill="#1e272e">
+               <font>
+                  <Font name="Times New Roman Bold" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/ManageAccount.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="workingContext" layoutX="273.0" prefHeight="613.0" prefWidth="637.0" />
+   </children>
+</AnchorPane>

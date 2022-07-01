@@ -1,0 +1,27 @@
+.right-side-background{
+    -fx-background-color: linear-gradient(to left,#000000,#341f97);
+}
+.left-side-background{
+    -fx-background-color: linear-gradient(to left,#1B1464,#D980FA);
+}
+.transparent{
+    -fx-background-color: rgba(0,0,0,0) ;
+}
+.border{
+    -fx-border-color: #2f4f4f;
+    -fx-border-width:1.5;
+}
+.anchorpane{
+    -fx-border-width: 2;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+}
+.right-side-border{
+    -fx-background-color:linear-gradient(to left,#3B3B98,#f368e0);
+    -fx-border-width: 2;
+    -fx-border-color: #ecf0f1;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+
+
