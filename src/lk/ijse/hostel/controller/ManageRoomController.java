@@ -24,15 +24,16 @@ public class ManageRoomController {
     public TextField txtQty;
     public Button btnAddRoom;
     public TextField txtMonthlyRent;
-    public ComboBox cmbRoomId;
+    //public ComboBox cmbRoomId;
     public Button btnUpdateRoom;
     public Button btnDeleteRoom;
+    public TextField txtRoomId;
     RoomDTO search;
     RoomBOImpl roomBoImpl = (RoomBOImpl) BOFactory.getInstance().getBO(BOType.ROOM);
 
     public void initialize() throws Exception {
 
-        ArrayList<RoomDTO> all = null;
+       /* ArrayList<RoomDTO> all = null;
         try{
             all = roomBoImpl.getAll();
         } catch (Exception e){
@@ -60,7 +61,7 @@ public class ManageRoomController {
                     e.printStackTrace();
                 }
             });
-        }
+        }*/
 
             }
 
@@ -68,19 +69,32 @@ public class ManageRoomController {
                 txtType.clear();
                 txtMonthlyRent.clear();
                 txtQty.clear();
-                cmbRoomId.setValue(null);
+                txtRoomId.clear();
+
             }
 
             public void addRoomOnAction (ActionEvent actionEvent) throws Exception {
 
-                search.setQty(search.getQty()+1);
-                roomBoImpl.update(new RoomDTO(search.getRoom_id(),search.getTye(),search.getKey_money(),search.getQty()));
-                clearFields();
+                String id = txtRoomId.getText();
+                Double mRent = Double.parseDouble(txtMonthlyRent.getText());
+                int qty = Integer.parseInt(txtQty.getText());
+                String roomType = txtType.getText();
+
+
+                try {
+                    if (roomBoImpl.add(new RoomDTO(id,roomType,mRent,qty))) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
+                        clearFields();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, "Something Happened. try again carefully!").showAndWait();
+                }
             }
 
     public void updateOnAction(ActionEvent actionEvent) throws Exception {
 
-        String id = (String) cmbRoomId.getValue();
+        String id = txtRoomId.getText();
         String type = txtType.getText();
         String monthlyRent = txtMonthlyRent.getText();
         String qty = txtQty.getText();
@@ -99,10 +113,20 @@ public class ManageRoomController {
 
 
     public void deleteOnAction(ActionEvent actionEvent) throws Exception {
-
-
-        search.setQty(search.getQty()-1);
-        roomBoImpl.update(new RoomDTO(search.getRoom_id(),search.getTye(),search.getKey_money(),search.getQty()));
+        roomBoImpl.delete(txtRoomId.getText());
         clearFields();
+
+
+    }
+
+    public void roomIdOnAction(ActionEvent actionEvent) throws Exception {
+        RoomDTO roomDTO = roomBoImpl.search(txtRoomId.getText());
+        if (roomDTO != null) {
+            txtMonthlyRent.setText(String.valueOf(roomDTO.getKey_money()));
+            txtQty.setText(String.valueOf(roomDTO.getQty()));
+            txtType.setText(roomDTO.getTye());
+
+
+        }
     }
 }

@@ -21,10 +21,10 @@ public class FactoryConfiguration {
         // configure() -> load and config Hibernate.cfg.xml file to SessionFactory
         // addAnnotatedClass() -> define which Entity that gonna use to Persist
         // loading properties file
-        Properties p = new Properties();
-        p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+        /*Properties p = new Properties();
+        p.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));*/
 
-        Configuration configuration = new Configuration().setProperties(p)
+        Configuration configuration = new Configuration()
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Room.class)

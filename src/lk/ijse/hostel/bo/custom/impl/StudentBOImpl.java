@@ -80,7 +80,9 @@ public class StudentBOImpl implements StudentBO {
     public StudentDTO search(String s) throws SQLException, ClassNotFoundException, IOException {
 
         Student search = studentDAO.search(s);
-        return new StudentDTO(search.getStudentId(),search.getStudentName(),search.getStudentAddress(),
-                search.getStudentContact(),search.getDateOfBirth(),search.getGender());
+        if(search!=null) {
+            return new StudentDTO(search.getStudentId(), search.getStudentName(), search.getStudentAddress(),
+                    search.getStudentContact(), search.getDateOfBirth(), search.getGender());
+        }return null;
     }
 }

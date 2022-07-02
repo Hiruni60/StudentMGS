@@ -24,12 +24,13 @@ public class ManageUserFormController {
     public ComboBox cmbUserName;
     public TextField txtFullName;
     public TextField txtPassword;
+    public TextField txtUserName;
 
     UserBOImpl userBOImpl = (UserBOImpl) BOFactory.getInstance().getBO(BOType.USER);
 
     public void initialize() throws SQLException, ClassNotFoundException, IOException {
 
-        cmbUserName.getItems().clear();
+        /*cmbUserName.getItems().clear();
         txtFullName.setDisable(true);
         ArrayList<UserDTO> all = null;
         try {
@@ -86,12 +87,12 @@ public class ManageUserFormController {
                 }
 
             });
-        }
+        }*/
     }
 
     public void clearFields () {
 
-        cmbUserName.setValue(null);
+       txtUserName.clear();
         txtContact.clear();
         txtEmail.clear();
         txtPassword.clear();
@@ -101,13 +102,14 @@ public class ManageUserFormController {
 
     public void addUserOnAction(ActionEvent actionEvent) {
 
-        String userName = txtFullName.getText();
+        //String UserName=txtUserName.getText();
+        String FullName = txtFullName.getText();
         String contact = txtContact.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
 
         try {
-            if (userBOImpl.add(new UserDTO(userName,contact,email,password))) {
+            if (userBOImpl.add(new UserDTO(FullName,contact,email,password))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
                 clearFields();
                 initialize();
@@ -121,13 +123,13 @@ public class ManageUserFormController {
 
     public void updateUserOnAction(ActionEvent actionEvent) {
 
-        String userName = (String) cmbUserName.getValue();
+        String FullName = txtFullName.getText();
         String contact = txtContact.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
 
         try {
-            if (userBOImpl.update(new UserDTO(userName,contact,email,password))){
+            if (userBOImpl.update(new UserDTO(FullName,contact,email,password))){
                 new Alert(Alert.AlertType.CONFIRMATION,"Update").show();
                 clearFields();
             }else {
@@ -141,8 +143,11 @@ public class ManageUserFormController {
 
     public void deleteUserOnAction(ActionEvent actionEvent) throws Exception {
 
-        userBOImpl.delete(txtFullName.getText());
+       // userBOImpl.delete(txtFullName.getText());
         clearFields();
         initialize();
+    }
+
+    public void userNameOnAction(ActionEvent actionEvent) {
     }
 }

@@ -27,16 +27,17 @@ public class StudentFormController {
     public Button btnUpdateStudent;
     public Button btnDeleteStudent;
     public ComboBox cmbStudentId;
+    public TextField txtStId;
 
 
     StudentBOImpl studentBOImpl = (StudentBOImpl) BOFactory.getInstance().getBO(BOType.STUDENT);
 
     public void initialize() throws Exception {
 
-        btnRegisterStudent.setDisable(true);
+        /*btnRegisterStudent.setDisable(true);
         btnUpdateStudent.setDisable(true);
-        btnDeleteStudent.setDisable(true);
-        ArrayList<StudentDTO> all = null;
+        btnDeleteStudent.setDisable(true);*/
+        /*ArrayList<StudentDTO> all = null;
         try{
             all = studentBOImpl.getAll();
         }catch (Exception e){
@@ -85,10 +86,11 @@ public class StudentFormController {
                 }
 
             });
-        }
+        }*/
 
     }
-    public void clearFields () {
+
+    public void clearFields() {
 
 
         txtSName.clear();
@@ -96,13 +98,13 @@ public class StudentFormController {
         txtSContact.clear();
         txtSBirthday.clear();
         txtSGender.clear();
-        cmbStudentId.setValue(null);
+        txtStId.clear();
 
     }
 
     public void registerStudentOnAction(ActionEvent actionEvent) {
 
-        String id = (String) cmbStudentId.getValue();
+        String id = txtStId.getText();
         String name = txtSName.getText();
         String address = txtSAddress.getText();
         String contact = txtSContact.getText();
@@ -110,26 +112,26 @@ public class StudentFormController {
         String gender = txtSGender.getText();
 
         try {
-            if (studentBOImpl.add(new StudentDTO(id, name, address,contact,birthday,gender))) {
+            if (studentBOImpl.add(new StudentDTO(id, name, address, contact, birthday, gender))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
                 clearFields();
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Something Happened. try again carefully!").showAndWait();
         }
     }
 
     public void updateStudentOnAction(ActionEvent actionEvent) {
 
-        String id = (String) cmbStudentId.getValue();
+        String id = txtStId.getText();
         String name = txtSName.getText();
         String address = txtSAddress.getText();
         String contact = txtSContact.getText();
         String birthday = txtSBirthday.getText();
         String gender = txtSGender.getText();
         try {
-            if(studentBOImpl.update(new StudentDTO(id, name, address,contact,birthday,gender))) {
+            if (studentBOImpl.update(new StudentDTO(id, name, address, contact, birthday, gender))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Updated.!").show();
                 clearFields();
             } else {
@@ -143,8 +145,19 @@ public class StudentFormController {
 
     public void deleteStudentOnAction(ActionEvent studentId) throws Exception {
 
-        studentBOImpl.delete((String) cmbStudentId.getValue());
+        studentBOImpl.delete(txtStId.getText());
         clearFields();
 
+    }
+
+    public void stIdOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        StudentDTO studentDTO = studentBOImpl.search(txtStId.getText());
+        if (studentDTO != null) {
+            txtSAddress.setText(studentDTO.getAddress());
+            txtSContact.setText(studentDTO.getContact());
+            txtSBirthday.setText(studentDTO.getDob());
+            txtSName.setText(studentDTO.getName());
+            txtSGender.setText(studentDTO.getGender());
+        }
     }
 }
