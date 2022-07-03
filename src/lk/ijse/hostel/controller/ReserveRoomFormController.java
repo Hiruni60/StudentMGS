@@ -47,6 +47,7 @@ public class ReserveRoomFormController {
     public TableColumn colDate;
     public TableColumn colStatus;
     public TextField txtTimeDuration;
+    public TableColumn colOption;
 
 
     ReserveRoomBOImpl reserveRoomBO = (ReserveRoomBOImpl) BOFactory.getInstance().getBO(BOType.RESERVEROOM);
@@ -57,6 +58,7 @@ public class ReserveRoomFormController {
         colType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+       // colOption.setCellValueFactory(new PropertyValueFactory<>("delete"));
         ArrayList<RoomDTO> all = null;
         try{
             all = reserveRoomBO.getAll();

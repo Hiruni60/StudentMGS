@@ -17,8 +17,10 @@ public class ManageAccountFormController {
     public Button btnPasswordChange;
 
     public void userNameChangeOnAction(ActionEvent actionEvent) {
+
     }
 
     public void passwordChangeOnAction(ActionEvent actionEvent) {
+
     }
 }

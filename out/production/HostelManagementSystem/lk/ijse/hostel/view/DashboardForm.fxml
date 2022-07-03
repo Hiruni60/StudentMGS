@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="601.0" prefWidth="909.0" style="-fx-background-color: #1e272e;" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.DashboardFormController">
    <children>
-      <AnchorPane layoutX="-36.0" prefHeight="613.0" prefWidth="311.0" style="-fx-background-color: #575fd6;" styleClass="border" stylesheets="@../assert/style/StyleSheet.css">
+      <AnchorPane layoutX="-36.0" prefHeight="613.0" prefWidth="311.0" style="-fx-background-color: #34b86d;" styleClass="border" stylesheets="@../assert/style/StyleSheet.css">
          <children>
             <Button fx:id="btnManageAccount" layoutX="74.0" layoutY="481.0" mnemonicParsing="false" onAction="#manageAccountOnAction" style="-fx-background-color: transparancy;" text="Manage Account">
                <font>

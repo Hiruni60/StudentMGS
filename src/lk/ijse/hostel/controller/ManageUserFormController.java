@@ -21,8 +21,8 @@ public class ManageUserFormController {
     public Button btnUpdate;
     public Button btnDelete;
     public TextField txtEmail;
-    public ComboBox cmbUserName;
-    public TextField txtFullName;
+    //public ComboBox cmbUserName;
+   // public TextField txtFullName;
     public TextField txtPassword;
     public TextField txtUserName;
 
@@ -96,40 +96,39 @@ public class ManageUserFormController {
         txtContact.clear();
         txtEmail.clear();
         txtPassword.clear();
-        txtFullName.clear();
+       // txtFullName.clear();
 
     }
 
     public void addUserOnAction(ActionEvent actionEvent) {
 
-        //String UserName=txtUserName.getText();
-        String FullName = txtFullName.getText();
+        String UserName=txtUserName.getText();
+        //String FullName = txtFullName.getText();
         String contact = txtContact.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
 
+
         try {
-            if (userBOImpl.add(new UserDTO(FullName,contact,email,password))) {
+            if (userBOImpl.add(new UserDTO(UserName, contact, email,password))) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved.!").show();
                 clearFields();
-                initialize();
             }
         } catch (Exception e) {
-            System.out.println(e);
-
+            e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Something Happened. try again carefully!").showAndWait();
         }
     }
 
     public void updateUserOnAction(ActionEvent actionEvent) {
 
-        String FullName = txtFullName.getText();
+        String UserName = txtUserName.getText();
         String contact = txtContact.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
 
         try {
-            if (userBOImpl.update(new UserDTO(FullName,contact,email,password))){
+            if (userBOImpl.update(new UserDTO(UserName,contact,email,password))){
                 new Alert(Alert.AlertType.CONFIRMATION,"Update").show();
                 clearFields();
             }else {
@@ -143,11 +142,19 @@ public class ManageUserFormController {
 
     public void deleteUserOnAction(ActionEvent actionEvent) throws Exception {
 
-       // userBOImpl.delete(txtFullName.getText());
+        userBOImpl.delete(txtUserName.getText());
         clearFields();
-        initialize();
+        //initialize();
     }
 
-    public void userNameOnAction(ActionEvent actionEvent) {
+    public void userNameOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+        UserDTO userDTO = userBOImpl.search(txtUserName.getText());
+        if (userDTO != null) {
+            txtContact.setText(userDTO.getContact());
+            txtEmail.setText(userDTO.getEmail());
+            txtPassword.setText(userDTO.getPassword());
+
+
+        }
     }
 }
