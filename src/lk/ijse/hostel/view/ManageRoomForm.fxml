@@ -9,17 +9,17 @@
 
 <AnchorPane fx:id="manageRoomContext" prefHeight="613.0" prefWidth="637.0" style="-fx-background-color: #3b4e61;" styleClass="right-side-background" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.ManageRoomController">
    <children>
-      <Label layoutX="101.0" layoutY="172.0" text="Id" textFill="WHITE">
+      <Label layoutX="73.0" layoutY="179.0" text="Room Type Id" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="239.0" text="Type" textFill="WHITE">
+      <Label layoutX="73.0" layoutY="246.0" text="Room Type" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="300.0" text="Monthly Rent" textFill="WHITE">
+      <Label layoutX="73.0" layoutY="307.0" text="Key Money(LKR)" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
@@ -47,7 +47,7 @@
             <Font name="Arial Black" size="17.0" />
          </font>
       </Button>
-      <Label layoutX="103.0" layoutY="357.0" text="Qty" textFill="WHITE">
+      <Label layoutX="75.0" layoutY="364.0" text="Rooms Qty" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>

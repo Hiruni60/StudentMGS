@@ -3,19 +3,15 @@ package lk.ijse.hostel.controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
+import lk.ijse.hostel.bo.custom.ReserveRoomBO;
+import lk.ijse.hostel.bo.custom.RoomBO;
 import lk.ijse.hostel.bo.custom.impl.ReserveRoomBOImpl;
-import lk.ijse.hostel.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hostel.dto.ReservationRoomDTO;
 import lk.ijse.hostel.dto.ReserveRoomDTO;
 import lk.ijse.hostel.dto.RoomDTO;
@@ -29,7 +25,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ReserveRoomFormController {
 
@@ -48,11 +43,17 @@ public class ReserveRoomFormController {
     public TableColumn colStatus;
     public TextField txtTimeDuration;
     public TableColumn colOption;
+    public ComboBox cmbStatus;
+    public Button btnDelete;
 
 
-    ReserveRoomBOImpl reserveRoomBO = (ReserveRoomBOImpl) BOFactory.getInstance().getBO(BOType.RESERVEROOM);
+    ReserveRoomBOImpl reserveRoomBO = (ReserveRoomBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.RESERVEROOM);
 
     public void initialize() throws Exception {
+        cmbStatus.getItems().add("Paid");
+        cmbStatus.getItems().add("Pending");
+        cmbStatus.getItems().add("Booked");
+        cmbStatus.getItems().add("Deposit");
 
         colRId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
         colType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
@@ -131,16 +132,29 @@ public class ReserveRoomFormController {
 
         reserveRoomBO.save(new ReservationRoomDTO(s,new Student(studentDTO.getId(),studentDTO.getName(),studentDTO.getAddress(),studentDTO.getContact(),
                 studentDTO.getDob(),studentDTO.getGender()),new Room(search.getRoom_id(),search.getTye(),search.getKey_money(),search.getQty()),
-                txtTimeDuration.getText(),txtStatus.getText(), LocalDate.now()));
+                txtTimeDuration.getText(),String.valueOf(cmbStatus.getValue()), LocalDate.now()));
 
         search.setQty(search.getQty()-1);
         reserveRoomBO.updateRoom(search);
         loadReservationTable();
 
         txtRoomType.clear();
-        txtStatus.clear();
+        cmbStatus.setValue(null);
         txtTimeDuration.clear();
 
 
     }
+
+    public void DeleteOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+
+       /* if(ReserveRoomBO.delete(tblReserveRoom.getSelectionModel().getSelectedItem().getReservationId())){
+            new Alert(Alert.AlertType.INFORMATION,"reservation deleted!").show();
+        }
+        RoomDTO roomDTO = RoomBO.search(tblReserveRoom.getSelectionModel().getSelectedItem().getRoomType());
+        roomDTO.setQty(roomDTO.getQty()+1);
+        RoomBO.update(roomDTO);
+        loadReservationTable();*/
+
+
+}
 }

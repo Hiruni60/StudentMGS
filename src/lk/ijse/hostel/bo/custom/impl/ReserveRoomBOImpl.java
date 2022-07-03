@@ -1,7 +1,5 @@
 package lk.ijse.hostel.bo.custom.impl;
 
-import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.ReserveRoomBO;
 import lk.ijse.hostel.dao.DAOFactory;
 import lk.ijse.hostel.dao.DAOType;

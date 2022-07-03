@@ -7,13 +7,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hostel.dto.StudentDTO;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class StudentFormController {
 
@@ -30,7 +28,7 @@ public class StudentFormController {
     public TextField txtStId;
 
 
-    StudentBOImpl studentBOImpl = (StudentBOImpl) BOFactory.getInstance().getBO(BOType.STUDENT);
+    StudentBOImpl studentBOImpl = (StudentBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.STUDENT);
 
     public void initialize() throws Exception {
 

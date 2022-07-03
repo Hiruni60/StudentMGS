@@ -7,7 +7,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.impl.RoomBOImpl;
 import lk.ijse.hostel.dto.RoomDTO;
 import lk.ijse.hostel.dto.StudentDTO;

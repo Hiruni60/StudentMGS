@@ -30,6 +30,12 @@ public class BOFactory {
                 return null;
         }
     }
+    public enum BOType {
+        STUDENT,
+        ROOM,
+        RESERVEROOM,
+        USER
+    }
 
 }
 

@@ -3,17 +3,13 @@ package lk.ijse.hostel.controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.impl.UserBOImpl;
-import lk.ijse.hostel.dto.StudentDTO;
 import lk.ijse.hostel.dto.UserDTO;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class ManageUserFormController {
     public TextField txtContact;
@@ -26,7 +22,7 @@ public class ManageUserFormController {
     public TextField txtPassword;
     public TextField txtUserName;
 
-    UserBOImpl userBOImpl = (UserBOImpl) BOFactory.getInstance().getBO(BOType.USER);
+    UserBOImpl userBOImpl = (UserBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.USER);
 
     public void initialize() throws SQLException, ClassNotFoundException, IOException {
 

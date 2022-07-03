@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,19 +12,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginContext" prefHeight="589.0" prefWidth="770.0" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.LoginFormController">
+<AnchorPane fx:id="loginContext" prefHeight="589.0" prefWidth="770.0" style="-fx-background-color: #3b4e61;" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.LoginFormController">
    <children>
-      <TextField fx:id="txtUserName" centerShape="false" layoutX="467.0" layoutY="239.0" prefHeight="33.0" prefWidth="206.0" promptText="User Name" style="-fx-background-color: transparance; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ffffff; -fx-text-fill: #ffffff;" stylesheets="@../assert/style/StyleSheet.css">
+      <TextField fx:id="txtUserName" centerShape="false" layoutX="467.0" layoutY="239.0" prefHeight="33.0" prefWidth="226.0" promptText="User Name" style="-fx-background-color: #F7F7F9 #F7F7F9; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ffffff; -fx-text-fill: black;" stylesheets="@../assert/style/StyleSheet.css">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="Bell MT Bold" size="15.0" />
          </font></TextField>
-      <Separator layoutX="407.0" layoutY="163.0" prefHeight="0.0" prefWidth="294.0" style="-fx-background-color: #000000;" />
+      <Separator layoutX="407.0" layoutY="119.0" prefHeight="0.0" prefWidth="294.0" style="-fx-background-color: #ffa72c;" />
       <Button fx:id="btnLogin" layoutX="502.0" layoutY="387.0" mnemonicParsing="false" onAction="#LoginOnAction" prefHeight="35.0" prefWidth="115.0" style="-fx-background-color: #1e272e;" stylesheets="@../assert/style/StyleSheet.css" text="Sign In" textFill="WHITE">
          <font>
             <Font name="Calisto MT Bold" size="15.0" />
          </font>
       </Button>
-      <Hyperlink layoutX="556.0" layoutY="482.0" text="Forgot Your Password">
+      <Hyperlink layoutX="616.0" layoutY="472.0" text="Forgot Your Password" textFill="#2306ff" underline="true">
          <font>
             <Font size="11.0" />
          </font>
@@ -32,11 +33,12 @@
          <font>
             <Font size="13.0" />
          </font></Label>
-      <PasswordField fx:id="pwdPassword" layoutX="467.0" layoutY="300.0" prefHeight="33.0" prefWidth="226.0" promptText="Password" style="-fx-background-color: transparance; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ffffff; -fx-text-fill: #ffffff;" styleClass="border" stylesheets="@../assert/style/StyleSheet.css">
+      <JFXPasswordField fx:id="pwdPassword" focusColor="#a4242400" layoutX="470.0" layoutY="301.0" onAction="#checkCredentials" prefHeight="35.0" prefWidth="226.0" promptText="Password" style="-fx-background-color: #F7F7F9; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ffffff;" unFocusColor="#3de39e00">
          <font>
-            <Font name="System Bold" size="15.0" />
-         </font></PasswordField>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="660.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+            <Font name="Bell MT Bold" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="701.0" layoutY="305.0" onMousePressed="#pwViewOnMousePressed" onMouseReleased="#pwViewOnMouseReleased" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assert/ViewPassword.png" />
          </image>
@@ -52,15 +54,17 @@
             <Image url="@../resources/download%20(1).png" />
          </image>
       </ImageView>
-      <Label layoutX="402.0" layoutY="79.0" prefHeight="51.0" prefWidth="255.0" text="WELCOME BACK," textFill="#ffa72c">
+      <Label layoutX="482.0" layoutY="59.0" prefHeight="48.0" prefWidth="144.0" text="LOGIN" textFill="#ffa72c">
          <font>
-            <Font name="System Bold" size="30.0" />
+            <Font name="Book Antiqua Bold" size="37.0" />
          </font>
       </Label>
-      <Label layoutX="402.0" layoutY="130.0" prefHeight="27.0" prefWidth="200.0" text="Sign In To Continue" textFill="#ffa72c">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="598.0" fitWidth="339.0" layoutX="-1.0" layoutY="-2.0">
+         <image>
+            <Image url="file:/F:/Hostel%20Management%20System/src/lk/ijse/hostel/assert/Screenshot%202022-06-27%20085923.jpg" />
+         </image>
+      </ImageView>
+      <Separator layoutX="340.0" layoutY="1.0" orientation="VERTICAL" prefHeight="598.0" prefWidth="9.0" style="-fx-background-color: black;" />
+      <JFXTextField fx:id="pwdShowPassWord" layoutX="470.0" layoutY="303.0" prefHeight="31.0" prefWidth="226.0" visible="false" />
    </children>
 </AnchorPane>

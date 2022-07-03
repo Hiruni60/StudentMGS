@@ -18,12 +18,12 @@
          </font>
       </Label>
       <Separator layoutX="32.0" layoutY="82.0" prefHeight="0.0" prefWidth="609.0" />
-      <Label layoutX="25.0" layoutY="125.0" text="Id" textFill="WHITE">
+      <Label layoutX="25.0" layoutY="125.0" text="Room Id" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="306.0" layoutY="135.0" text="RoomType" textFill="WHITE">
+      <Label layoutX="331.0" layoutY="126.0" text="RoomType" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
@@ -33,20 +33,16 @@
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="306.0" layoutY="184.0" text="Status" textFill="WHITE">
+      <Label layoutX="323.0" layoutY="184.0" text="Status" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txtRoomType" layoutX="421.0" layoutY="124.0" prefHeight="27.0" prefWidth="138.0" style="-fx-background-color: Transparancy; -fx-border-color: White; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: white;">
+      <TextField fx:id="txtRoomType" layoutX="450.0" layoutY="119.0" prefHeight="27.0" prefWidth="138.0" style="-fx-background-color: Transparancy; -fx-border-color: White; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: white;">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font></TextField>
-      <ComboBox fx:id="cmbRoomId" layoutX="80.0" layoutY="115.0" prefHeight="33.0" prefWidth="174.0" style="-fx-background-color: transarancy; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
-      <TextField fx:id="txtStatus" layoutX="383.0" layoutY="176.0" prefHeight="27.0" prefWidth="161.0" style="-fx-background-color: Transparancy; -fx-border-color: White; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: white;">
-         <font>
-            <Font name="Arial Black" size="17.0" />
-         </font></TextField>
+      <ComboBox fx:id="cmbRoomId" layoutX="116.0" layoutY="122.0" prefHeight="33.0" prefWidth="174.0" style="-fx-background-color: transarancy; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
       <ComboBox fx:id="cmbStudentId" layoutX="134.0" layoutY="167.0" prefHeight="34.0" prefWidth="138.0" style="-fx-background-color: transarancy; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
       <Label layoutX="411.0" layoutY="28.0" text="Date" textFill="WHITE">
          <font>
@@ -86,5 +82,11 @@
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
+      <ComboBox fx:id="cmbStatus" layoutX="403.0" layoutY="181.0" prefHeight="33.0" prefWidth="174.0" style="-fx-background-color: transarancy; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
+      <Button fx:id="btnDelete" layoutX="411.0" layoutY="538.0" mnemonicParsing="false" onAction="#DeleteOnAction" prefHeight="34.0" prefWidth="138.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

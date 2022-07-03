@@ -3,18 +3,11 @@ package lk.ijse.hostel.controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.impl.RoomBOImpl;
 import lk.ijse.hostel.dto.RoomDTO;
-import lk.ijse.hostel.dto.StudentDTO;
-import lk.ijse.hostel.entity.Room;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 
 public class ManageRoomController {
@@ -29,7 +22,7 @@ public class ManageRoomController {
     public Button btnDeleteRoom;
     public TextField txtRoomId;
     RoomDTO search;
-    RoomBOImpl roomBoImpl = (RoomBOImpl) BOFactory.getInstance().getBO(BOType.ROOM);
+    RoomBOImpl roomBoImpl = (RoomBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.ROOM);
 
     public void initialize() throws Exception {
 

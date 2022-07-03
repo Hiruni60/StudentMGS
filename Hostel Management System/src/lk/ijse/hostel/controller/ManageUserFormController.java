@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.impl.UserBOImpl;
 import lk.ijse.hostel.dto.StudentDTO;
 import lk.ijse.hostel.dto.UserDTO;

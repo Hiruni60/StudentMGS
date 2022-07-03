@@ -13,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import lk.ijse.hostel.bo.BOFactory;
-import lk.ijse.hostel.bo.BOType;
 import lk.ijse.hostel.bo.custom.impl.ReserveRoomBOImpl;
 import lk.ijse.hostel.bo.custom.impl.StudentBOImpl;
 import lk.ijse.hostel.dto.ReservationRoomDTO;
