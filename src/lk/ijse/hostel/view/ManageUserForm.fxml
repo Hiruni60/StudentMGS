@@ -4,55 +4,74 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="613.0" prefWidth="637.0" style="-fx-background-color: #3b4e61;" styleClass="right-side-background" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.ManageUserFormController">
+<AnchorPane prefHeight="613.0" prefWidth="660.0" style="-fx-background-color: #3b4e61;" styleClass="right-side-background" stylesheets="@../assert/style/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.ManageUserFormController">
    <children>
-      <Label layoutX="43.0" layoutY="38.0" text="Manage User" textFill="WHITE">
+      <ImageView fitHeight="613.0" fitWidth="670.0" opacity="0.19">
+         <image>
+            <Image url="file:/F:/Hostel%20Management%20System/src/lk/ijse/hostel/assert/e9c40b41bed57553688c50d21d595c98.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="36.0" layoutY="30.0" text="Manage User" textFill="#1b0042">
          <font>
-            <Font name="Book Antiqua" size="37.0" />
+            <Font name="Book Antiqua" size="38.0" />
          </font>
       </Label>
-      <Separator layoutX="26.0" layoutY="99.0" prefHeight="0.0" prefWidth="609.0" />
-      <Label layoutX="115.0" layoutY="164.0" text="Name" textFill="WHITE">
-         <font>
-            <Font name="Arial Black" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="97.0" layoutY="361.0" text="Password" textFill="WHITE">
-         <font>
-            <Font name="Arial Black" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="105.0" layoutY="224.0" text="Contact" textFill="WHITE">
+      <Separator layoutX="26.0" layoutY="99.0" prefHeight="0.0" prefWidth="609.0" style="-fx-background-color: #1b0042;" />
+      <Label layoutX="115.0" layoutY="164.0" text="Name" textFill="#1b0042">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail" layoutX="260.0" layoutY="291.0" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Transparancy; -fx-border-color: White; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
-      <TextField fx:id="txtPassword" layoutX="260.0" layoutY="358.0" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Transparancy; -fx-border-color: White; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
-      <Button fx:id="btnAdd" layoutX="133.0" layoutY="461.0" mnemonicParsing="false" onAction="#addUserOnAction" prefHeight="38.0" prefWidth="91.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Add" textFill="WHITE">
+      <Label layoutX="97.0" layoutY="361.0" text="Password" textFill="#1b0042">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="224.0" text="Contact" textFill="#1b0042">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmail" layoutX="260.0" layoutY="291.0" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Transparancy; -fx-border-color: #1b0042; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #1b0042;">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font></TextField>
+      <TextField fx:id="txtPassword" layoutX="260.0" layoutY="358.0" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Transparancy; -fx-border-color: #1b0042; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #1b0042;">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font></TextField>
+      <Button fx:id="btnAdd" layoutX="126.0" layoutY="461.0" mnemonicParsing="false" onAction="#addUserOnAction" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Add" textFill="WHITE">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="266.0" layoutY="461.0" mnemonicParsing="false" onAction="#updateUserOnAction" prefHeight="38.0" prefWidth="91.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Update" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="284.0" layoutY="461.0" mnemonicParsing="false" onAction="#updateUserOnAction" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Update" textFill="WHITE">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete" layoutX="392.0" layoutY="461.0" mnemonicParsing="false" onAction="#deleteUserOnAction" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Delete" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="422.0" layoutY="461.0" mnemonicParsing="false" onAction="#deleteUserOnAction" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Delete" textFill="WHITE">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="116.0" layoutY="294.0" text="Email" textFill="WHITE">
+      <Label layoutX="116.0" layoutY="294.0" text="Email" textFill="#1b0042">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="260.0" layoutY="221.0" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Transparancy; -fx-border-color: White; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
-      <TextField fx:id="txtUserName" layoutX="260.0" layoutY="161.0" onAction="#userNameOnAction" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Tranasparancy; -fx-border-color: White; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: White;" />
+      <TextField fx:id="txtContact" layoutX="260.0" layoutY="221.0" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Transparancy; -fx-border-color: #1b0042; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #1b0042;">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font></TextField>
+      <TextField fx:id="txtUserName" layoutX="260.0" layoutY="161.0" onAction="#userNameOnAction" prefHeight="33.0" prefWidth="220.0" style="-fx-background-color: Tranasparancy; -fx-border-color: #1b0042; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: #1b0042;">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font></TextField>
    </children>
 </AnchorPane>

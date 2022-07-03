@@ -65,6 +65,6 @@
          </image>
       </ImageView>
       <Separator layoutX="340.0" layoutY="1.0" orientation="VERTICAL" prefHeight="598.0" prefWidth="9.0" style="-fx-background-color: black;" />
-      <JFXTextField fx:id="pwdShowPassWord" layoutX="470.0" layoutY="303.0" prefHeight="31.0" prefWidth="226.0" visible="false" />
+      <JFXTextField fx:id="pwdShowPassWord" layoutX="470.0" layoutY="303.0" prefHeight="31.0" prefWidth="226.0" style="-fx-background-color: #F7F7F9 #F7F7F9; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #ffffff;" visible="false" />
    </children>
 </AnchorPane>

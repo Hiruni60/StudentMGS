@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="welcomePane" prefHeight="571.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.WelcomeFormController">
+   <children>
+      <ImageView fitHeight="558.0" fitWidth="943.0" layoutY="1.0">
+         <image>
+            <Image url="file:/E:/ijse/ijse60/fx/HostelManagement/src/view/assest/Students-hostel.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.12" contrast="0.38" hue="0.02" saturation="0.02" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e49e9e" height="62.0" layoutX="474.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="466.0" />
+      <Text layoutX="490.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOSTEL MANAGEMENT SYSTEM">
+         <font>
+            <Font name="Bell MT" size="27.0" />
+         </font>
+      </Text>
+      <ProgressBar fx:id="MyProgress" layoutY="548.0" prefHeight="21.0" prefWidth="943.0" progress="0.0" />
+   </children>
+</AnchorPane>
