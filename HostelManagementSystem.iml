@@ -40,5 +40,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="lombok-plugin-0.34-2020.2" level="project" />
+    <orderEntry type="library" name="ehcache-2.10.9.2" level="project" />
   </component>
 </module>

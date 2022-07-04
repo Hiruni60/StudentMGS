@@ -1,12 +1,16 @@
 package lk.ijse.hostel.entity;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class Reservation {
     @Id
@@ -30,6 +34,7 @@ public class Reservation {
         this.student = student;
         this.room = room;
         this.status = status;
+       // this.reserveDate=reserveDate;
     }
 
     public Reservation(String reservationId, Student student, Room room, String timeDuration, String status, LocalDate reserveDate) {

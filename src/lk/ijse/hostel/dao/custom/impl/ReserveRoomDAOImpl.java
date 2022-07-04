@@ -114,7 +114,9 @@ public class ReserveRoomDAOImpl implements ReserveRoomDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        session.delete(s);
+        Reservation room = session.load(Reservation.class,s);
+
+        session.delete(room);
 
         transaction.commit();
         session.close();

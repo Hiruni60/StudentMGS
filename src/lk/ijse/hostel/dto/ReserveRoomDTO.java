@@ -1,6 +1,7 @@
 package lk.ijse.hostel.dto;
 
 
+import java.time.LocalDate;
 
 public class ReserveRoomDTO {
 
@@ -8,15 +9,35 @@ public class ReserveRoomDTO {
     private String roomType;
     private String studentId;
     private String status;
+    private LocalDate reserveDate;
+    private String timeDuration;
+
+    public String getTimeDuration() {
+        return timeDuration;
+    }
+
+    public void setTimeDuration(String timeDuration) {
+        this.timeDuration = timeDuration;
+    }
 
     public ReserveRoomDTO() {
     }
 
-    public ReserveRoomDTO(String reservationId, String roomType, String studentId, String status) {
+    public LocalDate getReserveDate() {
+        return reserveDate;
+    }
+
+    public void setReserveDate(LocalDate reserveDate) {
+        this.reserveDate = reserveDate;
+    }
+
+    public ReserveRoomDTO(String reservationId, String roomType, String studentId, String status, LocalDate reserveDate, String timeDuration) {
         this.reservationId = reservationId;
         this.roomType = roomType;
         this.studentId = studentId;
         this.status = status;
+        this.reserveDate=reserveDate;
+        this.timeDuration=timeDuration;
     }
 
     public String getReservationId() {

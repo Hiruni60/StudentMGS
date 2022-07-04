@@ -24,7 +24,7 @@
             <Font name="Book Antiqua" size="32.0" />
          </font>
       </Label>
-      <Separator layoutX="17.0" layoutY="82.0" prefHeight="0.0" prefWidth="624.0" style="-fx-background-color: white;" />
+      <Separator layoutX="17.0" layoutY="82.0" prefHeight="3.0" prefWidth="644.0" style="-fx-background-color: white;" />
       <Label layoutX="25.0" layoutY="125.0" text="Room Id" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
@@ -67,12 +67,14 @@
          <font>
             <Font name="Bell MT" size="17.0" />
          </font></Label>
-      <TableView fx:id="tblReserveRoom" layoutX="43.0" layoutY="321.0" prefHeight="208.0" prefWidth="599.0">
+      <TableView fx:id="tblReserveRoom" layoutX="11.0" layoutY="329.0" prefHeight="224.0" prefWidth="661.0">
         <columns>
-          <TableColumn fx:id="colRId" prefWidth="143.0" text="Reserve Id" />
-          <TableColumn fx:id="colType" prefWidth="151.0" text="Room Type Id" />
-            <TableColumn fx:id="colDate" prefWidth="161.0" text="Date" />
-            <TableColumn fx:id="colStatus" prefWidth="142.0" text="Status" />
+          <TableColumn fx:id="colRId" prefWidth="109.0" text="Reserve Id" />
+          <TableColumn fx:id="colType" prefWidth="108.0" text="Room Type Id" />
+            <TableColumn fx:id="colStudentId" prefWidth="110.0" text="Student Id" />
+            <TableColumn fx:id="colDate" prefWidth="118.0" text="Date" />
+            <TableColumn fx:id="colStatus" prefWidth="102.0" text="Status" />
+            <TableColumn fx:id="colTimeDuration" prefWidth="113.0" text="Time Duration" />
         </columns>
       </TableView>
       <Button fx:id="btnReserve" layoutX="358.0" layoutY="248.0" mnemonicParsing="false" onAction="#reserveRoomOnAction" prefHeight="34.0" prefWidth="161.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Reserve" textFill="WHITE">
@@ -90,7 +92,7 @@
          </font>
       </Label>
       <ComboBox fx:id="cmbStatus" layoutX="453.0" layoutY="184.0" prefHeight="33.0" prefWidth="174.0" style="-fx-border-color: #0b002f; -fx-border-width: 0px 0px 2px 0px; -fx-text-fill: white;" />
-      <Button fx:id="btnDelete" layoutX="546.0" layoutY="248.0" mnemonicParsing="false" onAction="#DeleteOnAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Delete" textFill="WHITE">
+      <Button fx:id="btnDelete" layoutX="561.0" layoutY="248.0" mnemonicParsing="false" onAction="#DeleteOnAction" prefHeight="33.0" prefWidth="97.0" style="-fx-background-color: #1e9033;" styleClass="right-side-border" stylesheets="@../assert/style/StyleSheet.css" text="Delete" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="13.0" />
          </font>

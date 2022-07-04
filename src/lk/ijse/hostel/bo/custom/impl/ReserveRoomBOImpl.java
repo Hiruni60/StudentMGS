@@ -40,7 +40,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
 
     @Override
     public boolean delete(String id) throws Exception {
-        return false;
+        return reserveRoomDAO.delete(id);
     }
 
     public RoomDTO search(String id) throws SQLException, ClassNotFoundException, IOException {
@@ -109,7 +109,7 @@ public class ReserveRoomBOImpl implements ReserveRoomBO {
         for (Reservation room:all
              ) {
             allReserve.add(new ReserveRoomDTO(room.getReservationId(),room.getRoom().getRoomId(),
-                    room.getStudent().getStudentId(),room.getStatus()));
+                    room.getStudent().getStudentId(),room.getStatus(),room.getReserveDate(),room.getTimeDuration()));
         }
         return allReserve;
     }

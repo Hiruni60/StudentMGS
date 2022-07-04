@@ -45,9 +45,12 @@ public class ReserveRoomFormController {
     public TableColumn colOption;
     public ComboBox cmbStatus;
     public Button btnDelete;
+    public TableColumn colStudentId;
+    public TableColumn colTimeDuration;
 
 
     ReserveRoomBOImpl reserveRoomBO = (ReserveRoomBOImpl) BOFactory.getInstance().getBO(BOFactory.BOType.RESERVEROOM);
+    RoomBO roomBO = (RoomBO) BOFactory.getInstance().getBO(BOFactory.BOType.ROOM);
 
     public void initialize() throws Exception {
         cmbStatus.getItems().add("Paid");
@@ -57,8 +60,10 @@ public class ReserveRoomFormController {
 
         colRId.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
         colType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("reserveDate"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colTimeDuration.setCellValueFactory(new PropertyValueFactory<>("timeDuration"));
        // colOption.setCellValueFactory(new PropertyValueFactory<>("delete"));
         ArrayList<RoomDTO> all = null;
         try{
@@ -145,15 +150,15 @@ public class ReserveRoomFormController {
 
     }
 
-    public void DeleteOnAction(ActionEvent actionEvent) throws SQLException, IOException, ClassNotFoundException {
+    public void DeleteOnAction(ActionEvent actionEvent) throws Exception {
 
-       /* if(ReserveRoomBO.delete(tblReserveRoom.getSelectionModel().getSelectedItem().getReservationId())){
+        if(reserveRoomBO.delete(tblReserveRoom.getSelectionModel().getSelectedItem().getReservationId())){
             new Alert(Alert.AlertType.INFORMATION,"reservation deleted!").show();
         }
-        RoomDTO roomDTO = RoomBO.search(tblReserveRoom.getSelectionModel().getSelectedItem().getRoomType());
+        RoomDTO roomDTO = roomBO.search(tblReserveRoom.getSelectionModel().getSelectedItem().getRoomType());
         roomDTO.setQty(roomDTO.getQty()+1);
-        RoomBO.update(roomDTO);
-        loadReservationTable();*/
+        roomBO.update(roomDTO);
+        loadReservationTable();
 
 
 }
