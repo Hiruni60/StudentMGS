@@ -20,7 +20,7 @@ public class Student {
     private String gender;
     @ManyToOne
     private User user;
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Reservation> reservationList=new ArrayList<>();
 
     public Student() {

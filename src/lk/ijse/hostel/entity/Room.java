@@ -2,10 +2,7 @@ package lk.ijse.hostel.entity;
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,7 @@ public class Room {
     private String roomType;
     private double monthlyRent;
     private int qty;
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reservation> reservationList=new ArrayList<>();
 
 
